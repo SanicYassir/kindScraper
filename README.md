@@ -1,4 +1,4 @@
 # Pngitem.com scraper
-Downloads all images from it in high quality
+Downloads all png images in high quality
 
 Use : node sanic.js [search] [page]
