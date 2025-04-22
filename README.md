@@ -43,6 +43,8 @@ Images are saved in:
 └── ...
 ```
 
+![alt text](kindscraper.png)
+
 ## ⚙️ How It Works
 
 Launches a headless browser using Puppeteer
