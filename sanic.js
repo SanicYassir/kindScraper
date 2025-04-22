@@ -1,5 +1,4 @@
 const puppeteer = require("puppeteer");
-//const download = require("image-downloader");
 const imageDownloader = require("node-image-downloader");
 
 const fs = require("fs");
@@ -31,6 +30,9 @@ const scraper = (t, p) => {
     await page.goto(url, {
       waitUntil: "networkidle2",
     });
+
+    await autoScroll(page);
+
     srcs = await page.evaluate(() => {
       data = Array.from(document.querySelectorAll("img.lazy")).map((a) => {
         const regex1 = /[/]p./i;
@@ -77,6 +79,24 @@ const scraper = (t, p) => {
         console.log(error);
       });
   })();
+  async function autoScroll(page) {
+    await page.evaluate(async () => {
+      await new Promise((resolve, reject) => {
+        var totalHeight = 0;
+        var distance = 100;
+        var timer = setInterval(() => {
+          var scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
+
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 100);
+      });
+    });
+  }
 };
 
 const createDir = () => {
