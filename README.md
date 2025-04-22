@@ -33,13 +33,15 @@ This downloads all images from page 3 of the "cartoon" category.
 
 Images are saved in:
 
+```bash
 ./images/
 └── threads/
-└── <thread>/
-└── <page>/
+└── thread/
+└── page/
 ├── image1.png
 ├── image2.png
 └── ...
+```
 
 ## ⚙️ How It Works
 
