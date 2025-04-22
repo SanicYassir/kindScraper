@@ -1,4 +1,4 @@
-# KindPNG Image Scraper
+# KindPNG Images Scraper
 
 A Node.js script to download images from KindPNG.com by category and page number.
 
